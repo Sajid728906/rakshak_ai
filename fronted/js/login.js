@@ -45,8 +45,7 @@ document
 
         try {
 
-            const res = await fetch(
-                "https://rakshak-ai-alpha.vercel.app/api/auth/login",
+            const res = await fetch("https://rakshak-ai-alpha.vercel.app/api/auth/login",
                 {
                     method: "POST",
 

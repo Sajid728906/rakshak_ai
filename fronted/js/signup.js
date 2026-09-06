@@ -56,7 +56,8 @@ return;
 
 }
 
-const res=await fetch("https://rakshak-ai-alpha.vercel.app/api/auth/signup",{
+const res=await fetch("https://rakshak-ai-alpha.vercel.app/api/auth/signup",
+{
 
 method:"POST",
 
