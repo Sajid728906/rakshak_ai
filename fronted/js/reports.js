@@ -38,7 +38,7 @@ async function loadReports() {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/analytics",
+                "http://rakshak-ai-alpha.vercel.app/api/analytics",
                 {
 
                     headers: {

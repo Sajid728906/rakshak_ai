@@ -31,7 +31,7 @@ async function loadDashboard() {
         }
 
         const response = await fetch(
-            "http://localhost:5000/api/dashboard",
+            "http://rakshak-ai-alpha.vercel.app/api/dashboard",
             {
                 method: "GET",
                 headers: {
@@ -784,7 +784,7 @@ async function performScan(type) {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/scan",
+                "http://rakshak-ai-alpha.vercel.app/api/scan",
                 {
                     method: "POST",
 
@@ -988,7 +988,7 @@ async function loadNotificationCount() {
     try {
 
         const response = await fetch(
-            "http://localhost:5000/api/alerts",
+            "http://rakshak-ai-alpha.vercel.app/api/alerts",
             {
                 headers: {
                     "Authorization":
