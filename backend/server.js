@@ -6,8 +6,8 @@ const path = require("path");
 const app = express();
 const cors = require('cors');
 app.use(cors({
-    origin: 'htpps://netlify.app',
-    method: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['content-Type', 'Authorization']
 }));
 
