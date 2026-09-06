@@ -94,7 +94,7 @@ document
     try {
 
         const response = await fetch(
-            "http://rakshak-ai-alpha.vercel.app/api/settings/password",
+            "https://rakshak-ai-alpha.vercel.app/api/settings/password",
             {
 
                 method: "PATCH",

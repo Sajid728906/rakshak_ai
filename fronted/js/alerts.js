@@ -38,7 +38,7 @@ async function loadAlerts() {
 
         const response =
             await fetch(
-                "http://localhost:5000/api/alerts",
+                "https://localhost:5000/api/alerts",
                 {
 
                     headers: {
@@ -365,7 +365,7 @@ async function markRead(id) {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/alerts/${id}/read`,
+                `https://localhost:5000/api/alerts/${id}/read`,
                 {
 
                     method: "PATCH",
@@ -426,7 +426,7 @@ document
 
             const response =
                 await fetch(
-                    "http://localhost:5000/api/alerts/read-all",
+                    "https://localhost:5000/api/alerts/read-all",
                     {
 
                         method: "PATCH",
@@ -474,7 +474,7 @@ async function deleteAlert(id) {
 
         const response =
             await fetch(
-                `http://localhost:5000/api/alerts/${id}`,
+                `https://localhost:5000/api/alerts/${id}`,
                 {
 
                     method: "DELETE",
