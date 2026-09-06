@@ -61,7 +61,7 @@ async function loadUserProfile() {
     try {
 
         const response = await fetch(
-            "/api/settings/profile",
+            "https://rakshak-ai-alpha.vercel.app/api/settings/profile",
             {
                 method: "GET",
                 headers: {
@@ -153,7 +153,7 @@ async function loadHistory() {
 
         const response =
             await fetch(
-                "/api/scan/history",
+                "https://rakshak-ai-alpha.vercel.app/api/scan/history",
                 {
                     method: "GET",
 
