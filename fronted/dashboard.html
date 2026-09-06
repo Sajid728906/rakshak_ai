@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rakshak AI Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>Rakshak AI</span>
+        </div>
+
+        <!-- USER INFO -->
+
+        <div class="sidebar-user">
+
+            
+        </div>
+
+        <ul>
+
+            <li class="active">
+                <i class="fa-solid fa-house"></i>
+                Dashboard
+            </li>
+
+            <li onclick="window.location.href='scanner.html'">
+                <i class="fa-solid fa-robot"></i>
+                AI Scanner
+            </li>
+
+            <li onclick="window.location.href='history.html'">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            
+                History
+            
+            </li>
+
+            <li onclick="window.location.href='alerts.html'">
+
+                <i class="fa-solid fa-bell"></i>
+            
+                Alerts
+            
+            </li>
+
+            <li onclick="window.location.href='/reports'">
+
+                <i class="fa-solid fa-chart-line"></i>
+            
+                <span>Reports</span>
+            
+            </li>
+
+            <li onclick="window.location.href='/settings'">
+                <i class="fa-solid fa-gear"></i>
+                <spam>Settings</spam>
+            </li>
+
+            <li id="logoutBtn">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Logout
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- ================= MAIN ================= -->
+
+    <div class="main">
+
+        <!-- TOPBAR -->
+
+        <div class="topbar">
+
+            <div class="search-box">
+
+                <input type="text" placeholder="Search...">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="top-right">
+
+                <button id="themeBtn">
+
+                    <i class="fa-solid fa-moon"></i>
+
+                </button>
+
+                <div
+    class="notification"
+    id="notificationBtn"
+    onclick="window.location.href='alerts.html'"
+>
+
+    <i class="fa-solid fa-bell"></i>
+
+    <span
+        class="badge"
+        id="notificationCount"
+    >
+        0
+    </span>
+
+</div>
+
+                <div class="profile">
+
+                    <!--<button
+                    id="profilePictureBtn"
+                    class="profile-picture-btn">
+            
+                    <img
+                        id="profilePicture"
+                        src=""
+                        alt="Profile"
+                    >
+            
+                 </button>-->
+            
+                    <div>
+
+                       
+
+                        <!-- Email -->
+    
+    <!-- Subscription -->
+    <p>
+        <i class="fa-solid fa-crown"></i>
+        Plan:
+        <span id="subscription">Free</span>
+    </p>
+
+
+                        <p id="role">
+
+                            Cyber Defender
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <h1 id="welcomeText">
+
+                Welcome back...
+                
+
+            </h1>
+
+            <p>
+
+                Your AI Security Center
+
+            </p>
+
+        </section>
+
+        <!-- DASHBOARD CARDS -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h2 id="riskScore">0</h2>
+
+                <p>Risk Score</p>
+
+                <i class="fa-solid fa-shield-virus"></i>
+
+            </div>
+
+            <div class="card">
+
+                <h2 id="todayScans">0</h2>
+
+                <p>Today's Scans</p>
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div class="card">
+
+                <h2 id="blockedThreats">0</h2>
+
+                <p>Threats Blocked</p>
+
+                <i class="fa-solid fa-ban"></i>
+
+            </div>
+
+            <div class="card">
+
+                <h2 id="devices">1</h2>
+
+                <p>Protected Devices</p>
+
+                <i class="fa-solid fa-mobile-screen-button"></i>
+
+            </div>
+
+        </div>
+
+        <!-- QUICK AI SCAN -->
+
+        <h2 class="section-title">
+
+            Quick AI Scan
+
+        </h2>
+
+        <div class="scan-grid">
+
+            <div class="scan-card">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <span>Email Scan</span>
+
+            </div>
+
+            <div class="scan-card">
+
+                <i class="fa-solid fa-link"></i>
+
+                <span>URL Scan</span>
+
+            </div>
+
+            <div class="scan-card">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
+                <span>WhatsApp Scan</span>
+
+            </div>
+
+            <div class="scan-card">
+
+                <i class="fa-solid fa-comment-sms"></i>
+
+                <span>SMS Scan</span>
+
+            </div>
+
+            <div class="scan-card">
+
+                <i class="fa-solid fa-phone"></i>
+
+                <span>Phone Scan</span>
+
+            </div>
+
+            <div class="scan-card">
+
+                <i class="fa-solid fa-qrcode"></i>
+
+                <span>QR Scan</span>
+
+            </div>
+
+            <div class="scan-card">
+
+                <i class="fa-solid fa-image"></i>
+
+                <span>Image Scan</span>
+
+            </div>
+
+            <div class="scan-card">
+
+                <i class="fa-solid fa-file-shield"></i>
+
+                <span>File Scan</span>
+
+            </div>
+
+        </div>
+
+        <!-- RECENT ACTIVITY -->
+
+        <div class="activity">
+
+            <h2>
+
+                Recent Activity
+
+            </h2>
+
+            <div class="activity-box" id="recentActivity">
+
+                No Activity Yet
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

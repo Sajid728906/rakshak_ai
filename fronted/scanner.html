@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Rakshak AI - AI Scanner</title>
+
+    <link rel="stylesheet"
+          href="css/scanner.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     SIDEBAR
+========================================== -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>Rakshak AI</span>
+
+    </div>
+
+
+    <ul>
+
+        <li onclick="goDashboard()">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </li>
+
+
+        <li class="active">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <span>AI Scanner</span>
+
+        </li>
+
+
+        <li onclick="goHistory()">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <span>History</span>
+
+        </li>
+
+
+        <li onclick="goAlerts()">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>Alerts</span>
+
+        </li>
+
+
+        <li onclick="goReports()">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>Reports</span>
+
+        </li>
+
+
+        <li onclick="goSettings()">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Settings</span>
+
+        </li>
+
+
+        <li id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Logout</span>
+
+        </li>
+
+    </ul>
+
+</div>
+
+
+
+<!-- ==========================================
+     MAIN
+========================================== -->
+
+<div class="main">
+
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div>
+
+            <h1>AI Security Scanner</h1>
+
+            <p>
+                Analyze suspicious messages, URLs and text
+            </p>
+
+        </div>
+
+
+        <div class="scanner-status">
+
+            <span class="status-dot"></span>
+
+            Scanner Online
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==========================================
+         SCANNER CARD
+    ========================================== -->
+
+    <section class="scanner-card">
+
+        <div class="scanner-header">
+
+            <div class="scanner-icon">
+
+                <i class="fa-solid fa-shield-virus"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Scan Content</h2>
+
+                <p>
+                    Paste suspicious content below and let
+                    Rakshak AI analyze it.
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TYPE -->
+
+        <div class="type-section">
+
+            <label>
+                Content Type
+            </label>
+
+
+            <div class="type-buttons">
+
+                <button
+                    type="button"
+                    class="type-btn active"
+                    data-type="text">
+
+                    <i class="fa-solid fa-message"></i>
+
+                    Text
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="type-btn"
+                    data-type="url">
+
+                    <i class="fa-solid fa-link"></i>
+
+                    URL
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="type-btn"
+                    data-type="message">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    Message
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- TEXTAREA -->
+
+        <div class="input-section">
+
+            <label for="scanContent">
+
+                Content to Scan
+
+            </label>
+
+
+            <textarea
+                id="scanContent"
+                maxlength="10000"
+                placeholder="Paste suspicious text, URL, email, SMS or message here..."
+            ></textarea>
+
+
+            <div class="input-footer">
+
+                <span id="charCount">
+                    0 / 10000
+                </span>
+
+                <button
+                    type="button"
+                    id="clearBtn"
+                    class="clear-btn">
+
+                    <i class="fa-solid fa-eraser"></i>
+
+                    Clear
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SCAN BUTTON -->
+
+        <button
+            type="button"
+            id="scanBtn"
+            class="scan-btn">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <span id="scanBtnText">
+                Scan Now
+            </span>
+
+        </button>
+
+
+        <!-- ERROR -->
+
+        <div
+            id="scanError"
+            class="scan-error">
+        </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         RESULT
+    ========================================== -->
+
+    <section
+        id="resultSection"
+        class="result-section">
+
+
+        <div class="result-header">
+
+            <div>
+
+                <h2>
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                    Scan Result
+
+                </h2>
+
+                <p>
+                    Security analysis completed
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="result-grid">
+
+
+            <!-- RISK SCORE -->
+
+            <div class="result-card score-card">
+
+                <h3>Risk Score</h3>
+
+
+                <div
+                    id="riskScore"
+                    class="risk-score">
+
+                    0
+
+                </div>
+
+
+                <div class="score-label">
+                    / 100
+                </div>
+
+
+                <div
+                    id="riskLevel"
+                    class="risk-level">
+
+                    LOW
+
+                </div>
+
+            </div>
+
+
+
+            <!-- THREATS -->
+
+            <div class="result-card">
+
+                <h3>
+
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+
+                    Detected Threats
+
+                </h3>
+
+
+                <div
+                    id="threatList"
+                    class="threat-list">
+
+                    <span class="safe-message">
+
+                        <i class="fa-solid fa-shield-check"></i>
+
+                        No threats detected
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RECOMMENDATION -->
+
+            <div class="result-card recommendation-card">
+
+                <h3>
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    Recommendation
+
+                </h3>
+
+
+                <p id="recommendation">
+
+                    Your scan result will appear here.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- BLOCKED STATUS -->
+
+        <div
+            id="blockedStatus"
+            class="blocked-status">
+        </div>
+
+
+    </section>
+
+
+</div>
+
+
+<script src="js/scanner.js"></script>
+
+</body>
+
+</html>

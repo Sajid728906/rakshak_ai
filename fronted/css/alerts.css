@@ -1,0 +1,607 @@
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07111f,
+            #0d1b2a
+        );
+
+    color: white;
+
+    min-height: 100vh;
+
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+
+    top: 0;
+
+    width: 250px;
+
+    height: 100vh;
+
+    background: #0e1628;
+
+    padding: 25px 15px;
+
+    border-right:
+        1px solid rgba(255,255,255,.06);
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    margin-bottom: 45px;
+
+}
+
+
+.logo i {
+
+    color: #4f8cff;
+
+    font-size: 26px;
+
+}
+
+
+.sidebar ul {
+
+    list-style: none;
+
+}
+
+
+.sidebar li {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 16px;
+
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+
+    color: #91a0b7;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.sidebar li:hover,
+.sidebar li.active {
+
+    background:
+        rgba(59,130,246,.12);
+
+    color: white;
+
+}
+
+
+.sidebar li i {
+
+    width: 20px;
+
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.main {
+
+    margin-left: 250px;
+
+    padding: 35px;
+
+}
+
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+
+}
+
+
+.header h1 {
+
+    font-size: 30px;
+
+}
+
+
+.header p {
+
+    color: #8493aa;
+
+    margin-top: 5px;
+
+}
+
+
+.mark-all {
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+}
+
+
+.mark-all:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+/* ==========================================
+   STATS
+========================================== */
+
+.alert-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.stat {
+
+    background: #121d31;
+
+    border:
+        1px solid rgba(255,255,255,.05);
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+.stat > i {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(59,130,246,.12);
+
+    color: #60a5fa;
+
+}
+
+
+.stat.threat > i {
+
+    color: #f87171;
+
+    background:
+        rgba(239,68,68,.12);
+
+}
+
+
+.stat.warning > i {
+
+    color: #facc15;
+
+    background:
+        rgba(250,204,21,.12);
+
+}
+
+
+.stat.unread > i {
+
+    color: #a78bfa;
+
+    background:
+        rgba(139,92,246,.12);
+
+}
+
+
+.stat span {
+
+    font-size: 11px;
+
+    color: #8493aa;
+
+}
+
+
+.stat h2 {
+
+    font-size: 24px;
+
+    margin-top: 3px;
+
+}
+
+
+/* ==========================================
+   ALERTS
+========================================== */
+
+.alerts-container {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+
+.alert-card {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    background: #121d31;
+
+    border-radius: 17px;
+
+    border:
+        1px solid rgba(255,255,255,.05);
+
+    transition: .2s;
+
+}
+
+
+.alert-card:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.alert-card.unread {
+
+    border-left:
+        4px solid #3b82f6;
+
+}
+
+
+.alert-icon {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 21px;
+
+    flex-shrink: 0;
+
+}
+
+
+.alert-icon.THREAT {
+
+    color: #f87171;
+
+    background:
+        rgba(239,68,68,.12);
+
+}
+
+
+.alert-icon.WARNING {
+
+    color: #facc15;
+
+    background:
+        rgba(250,204,21,.12);
+
+}
+
+
+.alert-icon.SAFE {
+
+    color: #4ade80;
+
+    background:
+        rgba(34,197,94,.12);
+
+}
+
+
+.alert-icon.SYSTEM {
+
+    color: #60a5fa;
+
+    background:
+        rgba(59,130,246,.12);
+
+}
+
+
+.alert-content {
+
+    flex: 1;
+
+}
+
+
+.alert-content h3 {
+
+    font-size: 15px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.alert-content p {
+
+    color: #8b99ae;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+.alert-time {
+
+    color: #65758d;
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+}
+
+
+.alert-actions {
+
+    display: flex;
+
+    gap: 8px;
+
+}
+
+
+.alert-actions button {
+
+    width: 35px;
+
+    height: 35px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #1b2a42;
+
+    color: #aab7ca;
+
+    cursor: pointer;
+
+}
+
+
+.alert-actions button:hover {
+
+    background: #263a59;
+
+    color: white;
+
+}
+
+
+.loading,
+.empty {
+
+    padding: 70px;
+
+    text-align: center;
+
+    color: #8190a7;
+
+}
+
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:900px) {
+
+    .sidebar {
+
+        width: 75px;
+
+    }
+
+
+    .logo span {
+
+        display: none;
+
+    }
+
+
+    .sidebar li {
+
+        justify-content: center;
+
+    }
+
+
+    .sidebar li {
+
+        font-size: 0;
+
+    }
+
+
+    .sidebar li i {
+
+        font-size: 16px;
+
+    }
+
+
+    .main {
+
+        margin-left: 75px;
+
+    }
+
+
+    .alert-stats {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .main {
+
+        padding: 20px;
+
+    }
+
+
+    .header {
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+    .alert-stats {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .alert-card {
+
+        align-items: flex-start;
+
+    }
+
+
+    .alert-time {
+
+        display: none;
+
+    }
+
+}

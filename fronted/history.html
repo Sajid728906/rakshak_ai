@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Scan History | Rakshak AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/history.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     SIDEBAR
+========================================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>
+            Rakshak AI
+        </span>
+
+    </div>
+
+
+    <ul>
+
+        <li onclick="window.location.href='/dashboard'">
+
+            <i class="fa-solid fa-house"></i>
+        
+            Dashboard
+        
+        </li>
+
+
+        <li onclick="window.location.href=''">
+
+            <i class="fa-solid fa-robot"></i>
+
+            AI Scanner
+
+        </li>
+
+
+        <li class="active">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+        
+            History
+        
+        </li>
+
+
+        <li onclick="window.location.href='/alerts'">
+
+            <i class="fa-solid fa-bell"></i>
+        
+            Alerts
+        
+        </li>
+
+
+        <li onclick="window.location.href='/reports'">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            Reports
+
+        </li>
+
+
+        <li onclick="window.location.href='/settings'">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </li>
+
+
+        <li id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </li>
+
+    </ul>
+
+</div>
+
+
+
+<!-- =========================================
+     MAIN
+========================================= -->
+
+<div class="main">
+
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div>
+
+            <h1>
+                Scan History
+            </h1>
+
+            <p>
+                Review your previous security scans
+            </p>
+
+        </div>
+
+
+        <button
+            id="refreshBtn"
+            class="refresh-btn"
+        >
+
+            <i class="fa-solid fa-rotate"></i>
+
+            Refresh
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================
+         STATISTICS
+    ====================================== -->
+
+    <div class="history-stats">
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Total Scans
+                </span>
+
+                <h2 id="totalScans">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon danger">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Threats Found
+                </span>
+
+                <h2 id="threatsFound">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon safe">
+                <i class="fa-solid fa-shield-check"></i>
+            </div>
+
+            <div>
+
+                <span>
+                    Safe Scans
+                </span>
+
+                <h2 id="safeScans">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================
+         FILTER
+    ====================================== -->
+
+    <div class="history-toolbar">
+
+        <div class="search-history">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchHistory"
+                placeholder="Search scan history..."
+            >
+
+        </div>
+
+
+        <select id="riskFilter">
+
+            <option value="ALL">
+                All Risk Levels
+            </option>
+
+            <option value="LOW">
+                Low
+            </option>
+
+            <option value="MEDIUM">
+                Medium
+            </option>
+
+            <option value="HIGH">
+                High
+            </option>
+
+            <option value="CRITICAL">
+                Critical
+            </option>
+
+        </select>
+
+
+        <select id="typeFilter">
+
+            <option value="ALL">
+                All Types
+            </option>
+
+            <option value="email">
+                Email
+            </option>
+
+            <option value="url">
+                URL
+            </option>
+
+            <option value="sms">
+                SMS
+            </option>
+
+            <option value="whatsapp">
+                WhatsApp
+            </option>
+
+            <option value="phone">
+                Phone
+            </option>
+
+            <option value="text">
+                Text
+            </option>
+
+        </select>
+
+    </div>
+
+
+
+    <!-- =====================================
+         HISTORY
+    ====================================== -->
+
+    <div
+        id="historyContainer"
+        class="history-container"
+    >
+
+        <div class="loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading scan history...
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script src="js/history.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,1791 @@
+/* ==========================
+   GOOGLE FONT
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+:root{
+
+    --bg:#07111F;
+    --sidebar:#0E1628;
+    --card:#121D31;
+    --card2:#17243D;
+
+    --primary:#2563EB;
+    --green:#22C55E;
+    --red:#EF4444;
+    --orange:#F59E0B;
+
+    --text:#ffffff;
+    --text2:#B5C2D6;
+
+    --border:rgba(255,255,255,.08);
+
+}
+
+body{
+
+    background:linear-gradient(135deg,#07111F,#0D1B2A);
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+/* ==========================
+SIDEBAR
+========================== */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:var(--sidebar);
+
+    border-right:1px solid var(--border);
+
+    padding:25px;
+
+    overflow:auto;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    margin-bottom:45px;
+
+    color:white;
+
+}
+
+.logo i{
+
+    color:#3B82F6;
+
+    font-size:32px;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar ul li{
+
+    padding:15px;
+
+    margin-bottom:12px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:center;
+
+    transition:.35s;
+
+    color:#B7C4D9;
+
+}
+
+.sidebar ul li:hover{
+
+    background:#1E3A8A;
+
+    color:white;
+
+}
+
+.sidebar .active{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+/* ==========================
+MAIN
+========================== */
+
+.main{
+
+    margin-left:260px;
+
+    padding:35px;
+
+}
+
+/* ==========================
+TOPBAR
+========================== */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:40px;
+
+    flex-wrap:wrap;
+
+}
+
+.search-box{
+
+    width:360px;
+
+    max-width:100%;
+
+    position:relative;
+
+}
+
+.search-box input{
+
+    width:100%;
+
+    padding:14px 50px 14px 18px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#111B2C;
+
+    color:white;
+
+    outline:none;
+
+    border:1px solid var(--border);
+
+}
+
+.search-box i{
+
+    position:absolute;
+
+    right:18px;
+
+    top:16px;
+
+    color:#94A3B8;
+
+}
+
+.top-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+#themeBtn{
+
+    width:45px;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:#1B2A46;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#themeBtn:hover{
+
+    background:#2563EB;
+
+}
+
+.notification{
+
+    position:relative;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+}
+
+.badge{
+
+    position:absolute;
+
+    top:-6px;
+
+    right:-8px;
+
+    width:18px;
+
+    height:18px;
+
+    background:red;
+
+    border-radius:50%;
+
+    font-size:11px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.profile{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.profile img{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:2px solid #2563EB;
+
+}
+
+.profile p{
+
+    color:#9AAAC0;
+
+    font-size:13px;
+
+}
+
+/* ==========================
+WELCOME
+========================== */
+
+.welcome h1{
+
+    font-size:34px;
+
+    margin-bottom:10px;
+
+}
+
+.welcome p{
+
+    color:#B5C2D6;
+
+    margin-bottom:35px;
+
+}
+
+/* ==========================
+CARDS
+========================== */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-bottom:40px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:28px;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 40px rgba(37,99,235,.3);
+
+}
+
+.card h2{
+
+    font-size:38px;
+
+}
+
+.card p{
+
+    margin-top:8px;
+
+    color:#A9B7CC;
+
+}
+
+.card i{
+
+    position:absolute;
+
+    right:25px;
+
+    bottom:20px;
+
+    font-size:55px;
+
+    color:#2563EB;
+
+    opacity:.15;
+
+}
+
+/* ==========================
+SCAN GRID
+========================== */
+
+.section-title{
+
+    margin-bottom:20px;
+
+}
+
+.scan-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:22px;
+
+    margin-bottom:40px;
+
+}
+
+.scan-card{
+
+    background:#121D31;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.scan-card:hover{
+
+    transform:translateY(-8px);
+
+    background:#1B2A46;
+
+}
+
+.scan-card i{
+
+    font-size:42px;
+
+    color:#3B82F6;
+
+    margin-bottom:20px;
+
+}
+
+.scan-card span{
+
+    display:block;
+
+    font-size:17px;
+
+}
+
+/* ==========================
+RECENT ACTIVITY
+========================== */
+
+.activity{
+
+    margin-bottom:50px;
+
+}
+
+.activity-box{
+
+    margin-top:18px;
+
+    background:#121D31;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    color:#AAB9CE;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ==========================
+SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#2563EB;
+
+    border-radius:20px;
+
+}
+
+/* ==========================
+RESPONSIVE
+========================== */
+
+@media(max-width:1100px){
+
+.sidebar{
+
+    width:90px;
+
+}
+
+.logo span{
+
+    display:none;
+
+}
+
+.sidebar li{
+
+    justify-content:center;
+
+}
+
+.sidebar li i{
+
+    font-size:22px;
+
+}
+
+.sidebar li{
+
+    font-size:0;
+
+}
+
+.main{
+
+    margin-left:90px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.main{
+
+    margin-left:0;
+
+    padding:20px;
+
+}
+
+.sidebar{
+
+    position:fixed;
+
+    bottom:0;
+
+    top:auto;
+
+    width:100%;
+
+    height:75px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:0;
+
+    z-index:9999;
+
+}
+
+.logo{
+
+    display:none;
+
+}
+
+.sidebar ul{
+
+    display:flex;
+
+    width:100%;
+
+    justify-content:space-around;
+
+}
+
+.sidebar li{
+
+    margin:0;
+
+    padding:10px;
+
+    font-size:0;
+
+    border-radius:0;
+
+}
+
+.sidebar li i{
+
+    font-size:22px;
+
+}
+
+.topbar{
+
+    gap:20px;
+
+}
+
+.search-box{
+
+    width:100%;
+
+}
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+.scan-grid{
+
+    grid-template-columns:1fr 1fr;
+
+}
+
+}
+
+@media(max-width:500px){
+
+.scan-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+.welcome h1{
+
+    font-size:26px;
+
+}
+
+}
+/* ===============================
+   SCANNER MODAL
+================================ */
+
+.scanner-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.75);
+
+    backdrop-filter: blur(8px);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+
+    padding: 20px;
+
+}
+
+
+.scanner-modal {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    background: #121d31;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    position: relative;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.5);
+
+}
+
+
+.scanner-close {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 15px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+.scanner-icon {
+
+    font-size: 50px;
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+}
+
+
+.scanner-modal h2 {
+
+    text-align: center;
+
+    color: white;
+
+    margin-bottom: 10px;
+
+}
+
+
+.scanner-subtitle {
+
+    text-align: center;
+
+    color: #aab7cc;
+
+    margin-bottom: 25px;
+
+}
+
+
+#scanInput {
+
+    width: 100%;
+
+    min-height: 170px;
+
+    resize: vertical;
+
+    padding: 18px;
+
+    border-radius: 15px;
+
+    border: 1px solid #263750;
+
+    background: #0b1628;
+
+    color: white;
+
+    font-family: Poppins, sans-serif;
+
+    font-size: 15px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+}
+
+
+#scanInput:focus {
+
+    border-color: #3478ff;
+
+    box-shadow:
+        0 0 0 3px rgba(52,120,255,0.15);
+
+}
+
+
+.scan-now-btn {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2868f0;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.scan-now-btn:hover {
+
+    transform: translateY(-2px);
+
+    background: #3678ff;
+
+}
+
+
+.scan-result {
+
+    margin-top: 20px;
+
+}
+
+
+.scanning {
+
+    text-align: center;
+
+    color: #61a0ff;
+
+    padding: 20px;
+
+}
+
+
+.scan-error {
+
+    background: rgba(255,60,60,0.1);
+
+    border: 1px solid rgba(255,60,60,0.3);
+
+    color: #ff7777;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+}
+
+
+.scan-result-card {
+
+    background: #0b1628;
+
+    border-radius: 18px;
+
+    padding: 25px;
+
+    text-align: center;
+
+}
+
+
+.risk-icon {
+
+    font-size: 45px;
+
+}
+
+
+.scan-result-card h3 {
+
+    color: white;
+
+    font-size: 26px;
+
+    margin: 8px 0;
+
+}
+
+
+.risk-score {
+
+    color: #aab7cc;
+
+    margin-bottom: 20px;
+
+}
+
+
+.risk-score strong {
+
+    color: white;
+
+    font-size: 20px;
+
+}
+
+
+.threats,
+.recommendation {
+
+    text-align: left;
+
+    background: #121d31;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    margin-top: 12px;
+
+}
+
+
+.threats strong,
+.recommendation strong {
+
+    color: white;
+
+}
+
+
+.threats p,
+.recommendation p {
+
+    color: #aab7cc;
+
+    margin-bottom: 0;
+
+}
+
+
+@media (max-width: 600px) {
+
+    .scanner-modal {
+
+        padding: 25px;
+
+    }
+
+    .scanner-modal h2 {
+
+        font-size: 20px;
+
+    }
+
+}
+/* =========================================
+   RAKSHAK AI SCANNER MODAL - V2
+========================================= */
+
+.scanner-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 40px 20px;
+
+    background: rgba(2, 8, 20, 0.82);
+    backdrop-filter: blur(10px);
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+}
+
+
+/* MODAL */
+
+.scanner-modal {
+    width: min(720px, 100%);
+
+    margin: auto 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #14233b,
+            #0c1729
+        );
+
+    border: 1px solid rgba(90, 140, 255, 0.20);
+
+    border-radius: 28px;
+
+    padding: 34px;
+
+    position: relative;
+
+    box-shadow:
+        0 30px 100px rgba(0, 0, 0, 0.65),
+        0 0 40px rgba(37, 105, 255, 0.08);
+
+    box-sizing: border-box;
+}
+
+
+/* CLOSE BUTTON */
+
+.scanner-close {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.06);
+
+    color: #ffffff;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.scanner-close:hover {
+    background: rgba(255,255,255,0.14);
+
+    transform: rotate(90deg);
+}
+
+
+/* ICON */
+
+.scanner-icon {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    font-size: 38px;
+
+    box-shadow:
+        0 10px 30px rgba(37,99,235,0.35);
+}
+
+
+/* TITLE */
+
+.scanner-modal h2 {
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #ffffff;
+}
+
+
+/* SUBTITLE */
+
+.scanner-subtitle {
+    max-width: 560px;
+
+    margin: 10px auto 28px;
+
+    text-align: center;
+
+    color: #9eacc2;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+
+/* INPUT LABEL STYLE */
+
+#scanInput {
+    display: block;
+
+    width: 100%;
+
+    min-height: 190px;
+    max-height: 350px;
+
+    resize: vertical;
+
+    padding: 18px;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+
+    border: 1px solid #263b5b;
+
+    outline: none;
+
+    background: #081426;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    transition: 0.2s;
+}
+
+#scanInput::placeholder {
+    color: #66758c;
+}
+
+#scanInput:focus {
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,0.12);
+}
+
+
+/* SCAN BUTTON */
+
+.scan-now-btn {
+    width: 100%;
+
+    margin-top: 18px;
+
+    padding: 16px 20px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #3b82f6
+        );
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(37,99,235,0.25);
+
+    transition: all 0.2s ease;
+}
+
+.scan-now-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 30px rgba(37,99,235,0.35);
+}
+
+.scan-now-btn:active {
+    transform: translateY(0);
+}
+
+
+/* RESULT */
+
+.scan-result {
+    margin-top: 24px;
+}
+
+
+/* SCANNING */
+
+.scanning {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #7fb0ff;
+
+    background: rgba(59,130,246,0.07);
+
+    border-radius: 16px;
+}
+
+
+/* RESULT CARD */
+
+.scan-result-card {
+    padding: 26px;
+
+    background: #081426;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    border-radius: 20px;
+
+    text-align: center;
+}
+
+
+/* RISK ICON */
+
+.risk-icon {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 38px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.05);
+}
+
+
+/* RESULT TITLE */
+
+.scan-result-card h3 {
+    margin: 5px 0 8px;
+
+    color: #ffffff;
+
+    font-size: 27px;
+}
+
+
+/* SCORE */
+
+.risk-score {
+    margin-bottom: 22px;
+
+    color: #9eacc2;
+
+    font-size: 15px;
+}
+
+.risk-score strong {
+    color: #ffffff;
+
+    font-size: 21px;
+}
+
+
+/* RESULT SECTIONS */
+
+.threats,
+.recommendation {
+    margin-top: 13px;
+
+    padding: 18px;
+
+    text-align: left;
+
+    border-radius: 15px;
+
+    background: #101e33;
+
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.threats strong,
+.recommendation strong {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+.threats p,
+.recommendation p {
+    margin: 0;
+
+    color: #9eacc2;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ERROR */
+
+.scan-error {
+    padding: 16px;
+
+    border-radius: 14px;
+
+    background: rgba(239,68,68,0.10);
+
+    border: 1px solid rgba(239,68,68,0.25);
+
+    color: #ff7d7d;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .scanner-overlay {
+        padding: 15px;
+    }
+
+    .scanner-modal {
+        padding: 25px 18px;
+
+        border-radius: 22px;
+    }
+
+    .scanner-modal h2 {
+        font-size: 22px;
+    }
+
+    .scanner-icon {
+        width: 62px;
+        height: 62px;
+
+        font-size: 30px;
+    }
+
+    #scanInput {
+        min-height: 160px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 450px) {
+
+    .scanner-overlay {
+        padding: 8px;
+    }
+
+    .scanner-modal {
+        padding: 22px 15px;
+    }
+
+    .scanner-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .scanner-modal h2 {
+        font-size: 19px;
+    }
+
+    .scanner-subtitle {
+        font-size: 12px;
+    }
+
+    .scan-result-card {
+        padding: 18px;
+    }
+
+}
+body {
+    overflow-x: hidden;
+}
+
+.scanner-overlay {
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scanner-modal {
+    flex-shrink: 0;
+}
+.activity-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 16px;
+
+    margin-bottom: 10px;
+
+    border-radius: 14px;
+
+    background: rgba(255,255,255,0.03);
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+}
+
+
+.activity-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.05);
+
+    font-size: 21px;
+
+}
+
+
+.activity-info {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.activity-info strong {
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+.activity-info span {
+
+    color: #8998ae;
+
+    font-size: 11px;
+
+}
+
+
+.activity-risk {
+
+    text-align: right;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+}
+
+
+.activity-risk strong {
+
+    color: white;
+
+    font-size: 14px;
+
+}
+
+
+.activity-risk span {
+
+    color: #7faaff;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+
+.no-activity {
+
+    padding: 30px;
+
+    text-align: center;
+
+    color: #8998ae;
+
+}.profile-picture-btn {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 50%;
+
+    border: 2px solid #3b82f6;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    background: #16233d;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.profile-picture-btn img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================
+   PROFILE MODAL
+========================= */
+
+.profile-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 9999;
+
+}
+
+.profile-modal.show {
+
+    display: flex;
+
+}
+
+
+.profile-modal-content {
+
+    width: 380px;
+
+    max-width: 90%;
+
+    background: #111d33;
+
+    border: 1px solid #263b5c;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    position: relative;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.5);
+
+}
+
+
+.close-profile-modal {
+
+    position: absolute;
+
+    top: 15px;
+    right: 18px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+}
+
+
+.profile-modal-icon {
+
+    width: 80px;
+    height: 80px;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 32px;
+
+    color: white;
+
+}
+
+
+.profile-modal-content h2 {
+
+    color: white;
+
+    margin-bottom: 8px;
+
+}
+
+
+.profile-modal-content p {
+
+    color: #94a3b8;
+
+    margin-bottom: 25px;
+
+}
+
+
+.profile-option {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid #29405f;
+
+    background: #172640;
+
+    color: white;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    font-size: 15px;
+
+}
+
+
+.profile-option:hover {
+
+    background: #2563eb;
+
+}
+
+
+.profile-option i {
+
+    width: 25px;
+
+    font-size: 20px;
+
+}
+
+
+.camera-container {
+
+    margin-top: 20px;
+
+}
+
+
+#cameraVideo {
+
+    width: 100%;
+
+    border-radius: 12px;
+
+    background: black;
+
+}
+
+
+.capture-btn {
+
+    margin-top: 12px;
+
+    width: 100%;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+}

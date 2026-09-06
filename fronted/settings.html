@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Rakshak AI - Settings</title>
+
+    <link rel="stylesheet" href="css/settings.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= SIDEBAR ================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>Rakshak AI</span>
+
+    </div>
+
+
+    <ul>
+
+        <li onclick="goDashboard()">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </li>
+
+
+        <li onclick="goScanner()">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <span>AI Scanner</span>
+
+        </li>
+
+
+        <li onclick="goHistory()">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <span>History</span>
+
+        </li>
+
+
+        <li onclick="goAlerts()">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>Alerts</span>
+
+        </li>
+
+
+        <li onclick="goReports()">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>Reports</span>
+
+        </li>
+
+
+        <li class="active">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Settings</span>
+
+        </li>
+
+
+        <li id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Logout</span>
+
+        </li>
+
+    </ul>
+
+</div>
+
+
+
+<!-- ================= MAIN ================= -->
+
+<div class="main">
+
+
+    <!-- TOPBAR -->
+
+    <div class="topbar">
+
+        <div>
+
+            <h1>Settings</h1>
+
+            <p>Manage your Rakshak AI account</p>
+
+        </div>
+
+
+        <div class="top-user" id="topUser">
+
+            <button class="user-avatar" id="userAvatarBtn">
+                <i class="fa-solid fa-user"></i>
+            </button>
+        
+            <span id="topUserName">Loading...</span>
+        
+            <div class="user-dropdown" id="userDropdown">
+        
+                <div class="dropdown-header">
+                    <div class="dropdown-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+        
+                    <div>
+                        <strong id="dropdownName">Loading...</strong>
+                        <small id="dropdownEmail">Loading...</small>
+                    </div>
+                </div>
+        
+                <div class="dropdown-divider"></div>
+        
+                <div class="dropdown-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span id="dropdownFullName">Loading...</span>
+                </div>
+        
+                <div class="dropdown-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span id="dropdownUserEmail">Loading...</span>
+                </div>
+        
+                <div class="dropdown-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>Cyber Defender</span>
+                </div>
+        
+                <button class="dropdown-logout" id="dropdownLogout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </button>
+        
+            </div>
+        
+        </div>
+
+    </div>
+    <!-- ================= PROFILE ================= -->
+
+    <section class="settings-card">
+
+        <div class="card-title">
+
+            <div class="title-icon">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Profile Information</h2>
+
+                <p>Your account information</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-grid">
+
+
+            <div class="input-group">
+
+                <label>
+
+                    Full Name
+
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Your name"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <div class="input-group">
+
+                <label>
+
+                    Email Address
+
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Your email"
+                        disabled
+                    >
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- ================= SECURITY ================= -->
+
+    <section class="settings-card">
+
+        <div class="card-title">
+
+            <div class="title-icon">
+
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Security</h2>
+
+                <p>Keep your account secure</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="security-row">
+
+            <div>
+                <h3>Password</h3>
+                <p>Change your account password</p>
+            </div>
+        
+            <button id="changePasswordBtn" class="settings-btn">
+                <i class="fa-solid fa-key"></i>
+                Change Password
+            </button>
+        
+        </div>
+
+        <div class="security-item">
+
+            <div>
+
+                <h3>Login Protection</h3>
+
+                <p>
+                    Your account is protected with JWT authentication.
+                </p>
+
+            </div>
+
+
+            <span class="protected">
+
+                <i class="fa-solid fa-shield-check"></i>
+
+                Protected
+
+            </span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= PREFERENCES ================= -->
+
+    <section class="settings-card">
+
+        <div class="card-title">
+
+            <div class="title-icon">
+
+                <i class="fa-solid fa-sliders"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Preferences</h2>
+
+                <p>Customize your experience</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="preference-item">
+
+            <div>
+
+                <h3>Security Notifications</h3>
+
+                <p>
+                    Receive alerts when threats are detected.
+                </p>
+
+            </div>
+
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="notificationToggle"
+                    checked
+                >
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+
+        <div class="preference-item">
+
+            <div>
+
+                <h3>Dark Mode</h3>
+
+                <p>
+                    Use the dark Rakshak AI interface.
+                </p>
+
+            </div>
+
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="darkModeToggle"
+                    checked
+                >
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= ACCOUNT ================= -->
+
+    <section class="settings-card danger-card">
+
+        <div class="card-title">
+
+            <div class="title-icon danger-icon">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <div>
+
+                <h2>Account</h2>
+
+                <p>Account management</p>
+
+            </div>
+
+        </div>
+
+
+        <div class="security-item">
+
+            <div>
+
+                <h3>Logout</h3>
+
+                <p>
+                    Sign out from your Rakshak AI account.
+                </p>
+
+            </div>
+
+
+            <button
+                class="danger-btn"
+                id="logoutBtn2">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+
+<script src="js/settings.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports | Rakshak AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/reports.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+    <!-- Chart.js -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     SIDEBAR
+========================================== -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>
+            Rakshak AI
+        </span>
+
+    </div>
+
+
+    <ul>
+
+        <li
+            onclick="goDashboard()"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </li>
+
+
+        <li onclick="window.location.href='scanner.html'">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <span>AI Scanner</span>
+
+        </li>
+
+
+        <li
+            onclick="goHistory()"
+        >
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            <span>History</span>
+
+        </li>
+
+
+        <li
+            onclick="goAlerts()"
+        >
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span>Alerts</span>
+
+        </li>
+
+
+        <li onclick="goReports()">
+
+            <i class="fa-solid fa-chart-line"></i>
+        
+            <span>Reports</span>
+        
+        </li>
+
+
+        <li onclick="goSettings()">
+
+            <i class="fa-solid fa-gear"></i>
+
+            <span>Settings</span>
+
+        </li>
+
+
+        <li id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>Logout</span>
+
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- ==========================================
+     MAIN
+========================================== -->
+
+<div class="main">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+                Security Reports
+            </h1>
+
+            <p>
+                Analyze your security activity
+            </p>
+
+        </div>
+
+
+        <button
+            class="refresh-btn"
+            id="refreshBtn"
+        >
+
+            <i class="fa-solid fa-rotate"></i>
+
+            Refresh
+
+        </button>
+
+    </div>
+
+
+    <!-- ==========================================
+         SUMMARY CARDS
+    ========================================== -->
+
+    <div class="summary-grid">
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon blue">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Total Scans
+                </span>
+
+                <h2 id="totalScans">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon purple">
+
+                <i class="fa-solid fa-shield"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Average Risk
+                </span>
+
+                <h2>
+
+                    <span id="averageRisk">
+                        0
+                    </span>
+
+                    <small>/100</small>
+
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon red">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Threats
+                </span>
+
+                <h2 id="threatScans">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <div class="summary-icon orange">
+
+                <i class="fa-solid fa-bell"></i>
+
+            </div>
+
+            <div>
+
+                <span>
+                    Alerts
+                </span>
+
+                <h2 id="totalAlerts">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         CHARTS
+    ========================================== -->
+
+    <div class="charts-grid">
+
+
+        <!-- RISK TREND -->
+
+        <div class="chart-card large">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <h2>
+                        Risk Score Trend
+                    </h2>
+
+                    <p>
+                        Average and highest risk by day
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="chart-container">
+
+                <canvas
+                    id="riskChart"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+
+        <!-- SCAN DISTRIBUTION -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <div>
+
+                    <h2>
+                        Scan Distribution
+                    </h2>
+
+                    <p>
+                        Security scan results
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="pie-container">
+
+                <canvas
+                    id="scanChart"
+                ></canvas>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         SECURITY OVERVIEW
+    ========================================== -->
+
+    <div class="overview-card">
+
+        <h2>
+            Security Overview
+        </h2>
+
+
+        <div class="overview-grid">
+
+
+            <div class="overview-item">
+
+                <span>
+                    Safe Scans
+                </span>
+
+                <strong
+                    id="safeScans"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <span>
+                    Warning Scans
+                </span>
+
+                <strong
+                    id="warningScans"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <span>
+                    Highest Risk
+                </span>
+
+                <strong
+                    id="highestRisk"
+                >
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="overview-item">
+
+                <span>
+                    Unread Alerts
+                </span>
+
+                <strong
+                    id="unreadAlerts"
+                >
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==========================================
+         RECENT REPORTS
+    ========================================== -->
+
+    <div class="reports-card">
+
+        <div class="reports-header">
+
+            <div>
+
+                <h2>
+                    Recent Scan Reports
+                </h2>
+
+                <p>
+                    Latest security scans
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="table-wrapper"
+        >
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Scan Type
+                        </th>
+
+                        <th>
+                            Risk Score
+                        </th>
+
+                        <th>
+                            Risk Level
+                        </th>
+
+                        <th>
+                            Date
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="reportsTable"
+                >
+
+                    <tr>
+
+                        <td
+                            colspan="4"
+                            class="loading"
+                        >
+
+                            Loading reports...
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script
+    src="js/reports.js"
+></script>
+
+</body>
+
+</html>

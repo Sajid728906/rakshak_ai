@@ -1,0 +1,920 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #07111f, #0d1b2a);
+    color: white;
+    min-height: 100vh;
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background: #0e1628;
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+
+    padding: 25px 15px;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 45px;
+}
+
+.logo i {
+    color: #4f8cff;
+    font-size: 26px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 14px 16px;
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+
+    color: #91a0b7;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    background: rgba(59, 130, 246, 0.12);
+    color: #ffffff;
+}
+
+.sidebar li i {
+    width: 20px;
+}
+
+/* =========================================
+   MAIN
+========================================= */
+
+.main {
+    margin-left: 250px;
+    padding: 35px;
+    min-height: 100vh;
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.topbar p {
+    color: #8493aa;
+    margin-top: 5px;
+}
+
+.refresh-btn {
+    border: none;
+
+    padding: 12px 18px;
+    border-radius: 12px;
+
+    background: #2563eb;
+    color: white;
+
+    cursor: pointer;
+    font-family: inherit;
+
+    transition: 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #1d4ed8;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.history-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 22px;
+
+    background: #121d31;
+
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 18px;
+}
+
+.stat-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(59, 130, 246, 0.12);
+    color: #60a5fa;
+
+    font-size: 20px;
+}
+
+.stat-icon.danger {
+    color: #ff7070;
+    background: rgba(239, 68, 68, 0.12);
+}
+
+.stat-icon.safe {
+    color: #4ade80;
+    background: rgba(34, 197, 94, 0.12);
+}
+
+.stat-card span {
+    color: #8493aa;
+    font-size: 12px;
+}
+
+.stat-card h2 {
+    margin-top: 3px;
+    font-size: 25px;
+}
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.history-toolbar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.search-history {
+    flex: 1;
+    position: relative;
+}
+
+.search-history i {
+    position: absolute;
+
+    left: 15px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #66758c;
+}
+
+.search-history input,
+.history-toolbar select {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid #243754;
+
+    background: #0d192b;
+    color: white;
+
+    outline: none;
+    font-family: inherit;
+}
+
+.search-history input {
+    padding-left: 42px;
+}
+
+.history-toolbar select {
+    width: 180px;
+}
+
+/* =========================================
+   HISTORY CONTAINER
+========================================= */
+
+.history-container {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+
+    margin-top: 10px;
+}
+
+/* =========================================
+   IMPORTANT:
+   JS creates .history-item
+========================================= */
+
+.history-item {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 20px;
+
+    background: #121d31;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 18px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+
+    min-height: 95px;
+}
+
+.history-item:hover {
+    transform: translateY(-2px);
+
+    border-color: rgba(59, 130, 246, 0.35);
+
+    background: #15233a;
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.history-icon {
+    width: 52px;
+    height: 52px;
+
+    min-width: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+
+    background: rgba(59, 130, 246, 0.10);
+
+    color: #60a5fa;
+
+    font-size: 21px;
+}
+
+/* =========================================
+   INFO
+========================================= */
+
+.history-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.history-info h3 {
+    font-size: 15px;
+    font-weight: 600;
+
+    margin-bottom: 6px;
+}
+
+.history-preview {
+    color: #9aa8bb;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    /* IMPORTANT:
+       Long messages ko ek hi line
+       mein limited rakhega
+    */
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 100%;
+}
+
+/* =========================================
+   RISK
+========================================= */
+
+.history-risk {
+    min-width: 110px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+    justify-content: center;
+
+    gap: 5px;
+}
+
+.risk-badge {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+}
+
+.history-risk small {
+    color: #9aa8bb;
+
+    font-size: 11px;
+}
+
+/* LOW */
+
+.risk-low {
+    color: #4ade80;
+
+    background: rgba(34, 197, 94, 0.12);
+}
+
+/* MEDIUM */
+
+.risk-medium {
+    color: #facc15;
+
+    background: rgba(250, 204, 21, 0.12);
+}
+
+/* HIGH */
+
+.risk-high {
+    color: #fb923c;
+
+    background: rgba(249, 115, 22, 0.12);
+}
+
+/* CRITICAL */
+
+.risk-critical {
+    color: #f87171;
+
+    background: rgba(239, 68, 68, 0.14);
+}
+
+/* =========================================
+   DATE
+========================================= */
+
+.history-date {
+    min-width: 145px;
+
+    color: #9aa8bb;
+
+    font-size: 12px;
+
+    text-align: right;
+
+    line-height: 1.4;
+}
+
+/* =========================================
+   ARROW
+========================================= */
+
+.history-arrow {
+    width: 25px;
+    min-width: 25px;
+
+    display: flex;
+    justify-content: center;
+
+    color: #71819a;
+
+    font-size: 16px;
+
+    transition: 0.2s;
+}
+
+.history-item:hover .history-arrow {
+    color: #60a5fa;
+
+    transform: translateX(3px);
+}
+
+/* =========================================
+   LOADING / EMPTY
+========================================= */
+
+.loading,
+.empty {
+    padding: 60px;
+
+    text-align: center;
+
+    color: #8291a8;
+}
+
+.loading i {
+    margin-right: 8px;
+}
+
+/* =========================================
+   MODAL
+========================================= */
+
+.history-modal {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    backdrop-filter: blur(6px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.25s;
+
+    z-index: 999;
+}
+
+.history-modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.history-modal-content {
+    position: relative;
+
+    width: min(700px, 95vw);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    background: #111d31;
+
+    border: 1px solid #263b5a;
+
+    border-radius: 20px;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+}
+
+.close-modal {
+    position: absolute;
+
+    right: 18px;
+    top: 18px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+.close-modal:hover {
+    background: rgba(239, 68, 68, 0.15);
+}
+
+/* =========================================
+   MODAL TITLE
+========================================= */
+
+.modal-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.modal-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+
+    font-size: 20px;
+}
+
+.modal-title h2 {
+    font-size: 22px;
+}
+
+.modal-title p {
+    color: #8493aa;
+
+    font-size: 12px;
+
+    margin-top: 3px;
+}
+
+/* =========================================
+   RISK BOX
+========================================= */
+
+.risk-box {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+    background: #0d192b;
+
+    border: 1px solid #243754;
+
+    border-radius: 14px;
+}
+
+.risk-box span:first-child {
+    display: block;
+
+    color: #8493aa;
+
+    font-size: 12px;
+
+    margin-bottom: 4px;
+}
+
+.risk-box strong {
+    font-size: 24px;
+}
+
+/* =========================================
+   DETAIL ROW
+========================================= */
+
+.detail-row {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+    margin-bottom: 20px;
+}
+
+.detail-row span {
+    color: #8493aa;
+}
+
+.detail-row i {
+    margin-right: 8px;
+
+    color: #60a5fa;
+}
+
+/* =========================================
+   DETAIL SECTIONS
+========================================= */
+
+.detail-section {
+    margin-bottom: 22px;
+}
+
+.detail-section h3 {
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+.detail-section h3 i {
+    color: #60a5fa;
+
+    margin-right: 8px;
+}
+
+.content-box {
+    padding: 15px;
+
+    background: #0b1728;
+
+    border: 1px solid #243754;
+
+    border-radius: 12px;
+
+    color: #c4cfdd;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+}
+
+/* =========================================
+   THREATS
+========================================= */
+
+.threat-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.threat {
+    padding: 6px 10px;
+
+    border-radius: 8px;
+
+    background: rgba(239, 68, 68, 0.12);
+
+    color: #f87171;
+
+    font-size: 11px;
+}
+
+.no-threat {
+    color: #4ade80;
+
+    font-size: 13px;
+}
+
+/* =========================================
+   RECOMMENDATION
+========================================= */
+
+.recommendation {
+    padding: 15px;
+
+    border-radius: 12px;
+
+    background: rgba(59, 130, 246, 0.08);
+
+    border: 1px solid rgba(59, 130, 246, 0.18);
+
+    color: #b8c6d8;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+/* =========================================
+   BLOCKED STATUS
+========================================= */
+
+.blocked-status {
+    padding: 13px 15px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    margin-top: 10px;
+}
+
+.blocked-status.blocked {
+    color: #f87171;
+
+    background: rgba(239, 68, 68, 0.10);
+
+    border: 1px solid rgba(239, 68, 68, 0.18);
+}
+
+.blocked-status.allowed {
+    color: #4ade80;
+
+    background: rgba(34, 197, 94, 0.10);
+
+    border: 1px solid rgba(34, 197, 94, 0.18);
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 1100px) {
+
+    .history-date {
+        min-width: 120px;
+    }
+
+    .history-risk {
+        min-width: 90px;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 75px;
+    }
+
+    .sidebar .logo span {
+        display: none;
+    }
+
+    .sidebar li {
+        justify-content: center;
+    }
+
+    .sidebar li {
+        font-size: 0;
+    }
+
+    .sidebar li i {
+        font-size: 17px;
+    }
+
+    .main {
+        margin-left: 75px;
+    }
+
+    .history-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .main {
+        padding: 20px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .topbar h1 {
+        font-size: 25px;
+    }
+
+    .history-toolbar {
+        flex-direction: column;
+    }
+
+    .history-toolbar select {
+        width: 100%;
+    }
+
+    .history-item {
+        align-items: flex-start;
+
+        padding: 16px;
+
+        gap: 12px;
+    }
+
+    .history-info {
+        min-width: 0;
+    }
+
+    .history-preview {
+        white-space: nowrap;
+    }
+
+    .history-risk {
+        min-width: auto;
+
+        margin-left: auto;
+    }
+
+    .history-date {
+        display: none;
+    }
+
+    .history-arrow {
+        align-self: center;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .main {
+        padding: 15px;
+    }
+
+    .topbar {
+        flex-direction: column;
+    }
+
+    .refresh-btn {
+        width: 100%;
+    }
+
+    .history-item {
+        position: relative;
+
+        padding-right: 45px;
+    }
+
+    .history-risk {
+        position: absolute;
+
+        right: 15px;
+        top: 15px;
+    }
+
+    .history-arrow {
+        position: absolute;
+
+        right: 15px;
+        bottom: 15px;
+    }
+
+    .history-icon {
+        width: 45px;
+        height: 45px;
+        min-width: 45px;
+    }
+}

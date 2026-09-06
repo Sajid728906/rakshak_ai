@@ -1,0 +1,914 @@
+/* ==========================================
+   RAKSHAK AI - SCANNER
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family: "Poppins", sans-serif;
+
+    background:
+        #08111f;
+
+    color: #ffffff;
+
+    min-height: 100vh;
+
+}
+
+
+/* ==========================================
+   SIDEBAR
+========================================== */
+
+.sidebar {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    background: #0d1a2d;
+
+    border-right:
+        1px solid #1d304c;
+
+    padding: 25px 15px;
+
+}
+
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding:
+        0 12px 30px;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+}
+
+
+.logo i {
+
+    color: #3b82f6;
+
+    font-size: 25px;
+
+}
+
+
+.sidebar ul {
+
+    list-style: none;
+
+}
+
+
+.sidebar li {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding:
+        14px 15px;
+
+    margin-bottom: 7px;
+
+    border-radius: 10px;
+
+    color: #94a3b8;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.sidebar li:hover {
+
+    background: #142640;
+
+    color: #ffffff;
+
+}
+
+
+.sidebar li.active {
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+}
+
+
+.sidebar li i {
+
+    width: 20px;
+
+    text-align: center;
+
+}
+
+
+/* ==========================================
+   MAIN
+========================================== */
+
+.main {
+
+    margin-left: 240px;
+
+    padding: 30px 40px;
+
+    min-height: 100vh;
+
+}
+
+
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.topbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.topbar h1 {
+
+    font-size: 28px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.topbar p {
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+}
+
+
+.scanner-status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding:
+        9px 14px;
+
+    border:
+        1px solid #214467;
+
+    border-radius: 20px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+}
+
+
+.status-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+}
+
+
+/* ==========================================
+   SCANNER CARD
+========================================== */
+
+.scanner-card {
+
+    background: #0d1a2d;
+
+    border:
+        1px solid #1d304c;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    max-width: 1000px;
+
+}
+
+
+.scanner-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.scanner-icon {
+
+    width: 55px;
+    height: 55px;
+
+    border-radius: 14px;
+
+    background: #142d52;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #60a5fa;
+
+    font-size: 24px;
+
+}
+
+
+.scanner-header h2 {
+
+    font-size: 20px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.scanner-header p {
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+}
+
+
+/* ==========================================
+   TYPE
+========================================== */
+
+.type-section {
+
+    margin-bottom: 22px;
+
+}
+
+
+.type-section label,
+.input-section label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+}
+
+
+.type-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+.type-btn {
+
+    border:
+        1px solid #29405f;
+
+    background: #111f35;
+
+    color: #94a3b8;
+
+    padding:
+        10px 18px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.type-btn:hover {
+
+    border-color: #3b82f6;
+
+    color: #ffffff;
+
+}
+
+
+.type-btn.active {
+
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+
+}
+
+
+.type-btn i {
+
+    margin-right: 7px;
+
+}
+
+
+/* ==========================================
+   TEXTAREA
+========================================== */
+
+.input-section {
+
+    margin-bottom: 20px;
+
+}
+
+
+#scanContent {
+
+    width: 100%;
+
+    min-height: 220px;
+
+    resize: vertical;
+
+    background: #081524;
+
+    border:
+        1px solid #29405f;
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+#scanContent:focus {
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(
+            59,
+            130,
+            246,
+            0.1
+        );
+
+}
+
+
+#scanContent::placeholder {
+
+    color: #64748b;
+
+}
+
+
+.input-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 8px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+}
+
+
+.clear-btn {
+
+    border: none;
+
+    background: transparent;
+
+    color: #94a3b8;
+
+    cursor: pointer;
+
+    font-family: inherit;
+
+}
+
+
+.clear-btn:hover {
+
+    color: #ffffff;
+
+}
+
+
+/* ==========================================
+   SCAN BUTTON
+========================================== */
+
+.scan-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        0.2s ease;
+
+}
+
+
+.scan-btn:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+.scan-btn:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+}
+
+
+.scan-btn i {
+
+    margin-right: 8px;
+
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.scan-error {
+
+    display: none;
+
+    margin-top: 15px;
+
+    padding: 12px 15px;
+
+    border:
+        1px solid #7f1d1d;
+
+    background: #2b1116;
+
+    color: #fca5a5;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+
+}
+
+
+.scan-error.show {
+
+    display: block;
+
+}
+
+
+/* ==========================================
+   RESULT
+========================================== */
+
+.result-section {
+
+    display: none;
+
+    max-width: 1000px;
+
+    margin-top: 25px;
+
+}
+
+
+.result-section.show {
+
+    display: block;
+
+}
+
+
+.result-header {
+
+    margin-bottom: 18px;
+
+}
+
+
+.result-header h2 {
+
+    font-size: 20px;
+
+}
+
+
+.result-header h2 i {
+
+    color: #60a5fa;
+
+    margin-right: 8px;
+
+}
+
+
+.result-header p {
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+}
+
+
+.result-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1.5fr 1.5fr;
+
+    gap: 15px;
+
+}
+
+
+.result-card {
+
+    background: #0d1a2d;
+
+    border:
+        1px solid #1d304c;
+
+    border-radius: 15px;
+
+    padding: 22px;
+
+    min-height: 170px;
+
+}
+
+
+.result-card h3 {
+
+    font-size: 14px;
+
+    color: #cbd5e1;
+
+    margin-bottom: 18px;
+
+}
+
+
+.result-card h3 i {
+
+    margin-right: 7px;
+
+}
+
+
+/* ==========================================
+   SCORE
+========================================== */
+
+.score-card {
+
+    text-align: center;
+
+}
+
+
+.risk-score {
+
+    font-size: 48px;
+
+    font-weight: 700;
+
+    line-height: 1;
+
+}
+
+
+.score-label {
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+}
+
+
+.risk-level {
+
+    display: inline-block;
+
+    margin-top: 14px;
+
+    padding:
+        5px 12px;
+
+    border-radius: 20px;
+
+    background: #12351f;
+
+    color: #4ade80;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+}
+
+
+/* ==========================================
+   THREATS
+========================================== */
+
+.threat-list {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+}
+
+
+.threat-tag {
+
+    padding:
+        6px 10px;
+
+    border-radius: 7px;
+
+    background: #3a1818;
+
+    border:
+        1px solid #652424;
+
+    color: #fca5a5;
+
+    font-size: 12px;
+
+}
+
+
+.safe-message {
+
+    color: #4ade80;
+
+    font-size: 13px;
+
+}
+
+
+.safe-message i {
+
+    margin-right: 6px;
+
+}
+
+
+/* ==========================================
+   RECOMMENDATION
+========================================== */
+
+.recommendation-card p {
+
+    color: #94a3b8;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+}
+
+
+/* ==========================================
+   BLOCKED
+========================================== */
+
+.blocked-status {
+
+    margin-top: 15px;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    display: none;
+
+}
+
+
+.blocked-status.show {
+
+    display: block;
+
+}
+
+
+.blocked-status.blocked {
+
+    background: #321515;
+
+    border:
+        1px solid #7f1d1d;
+
+    color: #fca5a5;
+
+}
+
+
+.blocked-status.safe {
+
+    background: #10291b;
+
+    border:
+        1px solid #14532d;
+
+    color: #86efac;
+
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+
+        width: 200px;
+
+    }
+
+    .main {
+
+        margin-left: 200px;
+
+        padding:
+            25px;
+
+    }
+
+    .result-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .sidebar {
+
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+
+    }
+
+    .sidebar ul {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+    }
+
+    .sidebar li {
+
+        margin-right: 5px;
+
+    }
+
+    .main {
+
+        margin-left: 0;
+
+    }
+
+    .topbar {
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+        flex-direction: column;
+
+    }
+
+}

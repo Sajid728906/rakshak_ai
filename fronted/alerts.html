@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Alerts | Rakshak AI</title>
+
+    <link
+        rel="stylesheet"
+        href="css/alerts.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     SIDEBAR
+========================================== -->
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+        <span>
+            Rakshak AI
+        </span>
+
+    </div>
+
+
+    <ul>
+
+        <li
+            onclick="goDashboard()"
+        >
+
+            <i class="fa-solid fa-house"></i>
+
+            Dashboard
+
+        </li>
+
+
+        <li onclick="window.location.href='scanner.html'">
+
+            <i class="fa-solid fa-robot"></i>
+
+            AI Scanner
+
+        </li>
+
+
+        <li
+            onclick="goHistory()"
+        >
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            History
+
+        </li>
+
+
+        <li class="active">
+
+            <i class="fa-solid fa-bell"></i>
+
+            Alerts
+
+        </li>
+
+
+        <li onclick="goReports()">
+
+            <i class="fa-solid fa-chart-line"></i>
+        
+            <span>Reports</span>
+        
+        </li>
+
+
+        <li onclick="goSettings()">
+
+            <i class="fa-solid fa-gear"></i>
+
+            Settings
+
+        </li>
+
+
+        <li id="logoutBtn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            Logout
+
+        </li>
+
+    </ul>
+
+</div>
+
+
+<!-- ==========================================
+     MAIN
+========================================== -->
+
+<div class="main">
+
+
+    <!-- HEADER -->
+
+    <div class="header">
+
+        <div>
+
+            <h1>
+                Security Alerts
+            </h1>
+
+            <p>
+                Monitor your latest security activity
+            </p>
+
+        </div>
+
+
+        <button
+            id="markAllBtn"
+            class="mark-all"
+        >
+
+            <i class="fa-solid fa-check-double"></i>
+
+            Mark all as read
+
+        </button>
+
+    </div>
+
+
+    <!-- =======================================
+         ALERT SUMMARY
+    ======================================== -->
+
+    <div class="alert-stats">
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <div>
+
+                <span>
+                    Total Alerts
+                </span>
+
+                <h2 id="totalAlerts">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat threat">
+
+            <i class="fa-solid fa-triangle-exclamation"></i>
+
+            <div>
+
+                <span>
+                    Threats
+                </span>
+
+                <h2 id="threatAlerts">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat warning">
+
+            <i class="fa-solid fa-circle-exclamation"></i>
+
+            <div>
+
+                <span>
+                    Warnings
+                </span>
+
+                <h2 id="warningAlerts">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat unread">
+
+            <i class="fa-solid fa-envelope"></i>
+
+            <div>
+
+                <span>
+                    Unread
+                </span>
+
+                <h2 id="unreadAlerts">
+                    0
+                </h2>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =======================================
+         ALERT LIST
+    ======================================== -->
+
+    <div
+        id="alertsContainer"
+        class="alerts-container"
+    >
+
+        <div class="loading">
+
+            <i class="fa-solid fa-spinner fa-spin"></i>
+
+            Loading alerts...
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<script src="js/alerts.js"></script>
+
+</body>
+
+</html>
